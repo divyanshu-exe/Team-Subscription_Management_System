@@ -1,0 +1,20 @@
+// OWNER: BE-1
+// PURPOSE: Single source of truth for the database. Everyone depends on this file.
+// RULE: Only BE-1 edits this file. Others request changes in the team chat.
+// See team-docs/02-data-model.md for the full model/field list.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// TODO models: User, Customer, PasswordReset, Product, Variant, Tax, Plan,
+// QuotationTemplate, QuotationTemplateLine, Subscription, SubscriptionLine,
+// Discount, DiscountProduct, Invoice, InvoiceLine, Payment, StatusHistory, AuditLog
+//
+// MUST HAVE: @@unique([subscriptionId, periodStart, periodEnd]) on Invoice
+// MUST HAVE: indexes on status, nextInvoiceDate, customerId, dueDate
