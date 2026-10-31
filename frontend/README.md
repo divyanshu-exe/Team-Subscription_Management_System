@@ -1,4 +1,8 @@
 # Frontend
+this is the folder having the codebase for frontend 
+the tech stack used
+typescript 
+next.js
 
 ```
 npm install
