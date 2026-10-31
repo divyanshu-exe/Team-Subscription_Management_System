@@ -1,6 +1,6 @@
 # Team Overview: Subscription Management System
 
-Scope rule: build EXACTLY what the problem statement lists. No extra features.
+Scope rule: build EXACTLY what the problem statement lists. No extra features
 
 ## Team split
 | Dev | Owns | Doc |
