@@ -177,4 +177,7 @@ describe('Subscription State Machine', () => {
       expect(err.status).toBe(400);
     }
   });
+
 });
+
+

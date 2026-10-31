@@ -29,4 +29,7 @@ describe('App Foundation & Health Check (Prompt 1 & B1-2)', () => {
     // Missing special character -> REJECTED
     expect(isValidPassword('Abcdefgh12')).toBe(false);
   });
+
 });
+
+

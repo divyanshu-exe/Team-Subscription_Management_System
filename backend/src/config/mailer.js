@@ -47,4 +47,6 @@ async function sendMail({ to, subject, html, attachments = [] }) {
 
 module.exports = {
   sendMail,
+
 };
+

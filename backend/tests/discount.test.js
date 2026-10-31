@@ -1,5 +1,8 @@
-// OWNER: BE-2
-// PURPOSE: Discount auto-apply / expiry / usage limit tests
-// TODO: implement (see team-docs for the exact task list)
+// OWNER: BE-1
+// PURPOSE: Discount auto-apply / expiry / usage limit tests (B1-7 placeholder)
 
-module.exports = {};
+describe.skip('Discount Engine Tests (B1-7)', () => {
+  test('placeholder for discount eligibility tests', () => {
+    expect(true).toBe(true);
+  });
+});

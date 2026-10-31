@@ -34,4 +34,6 @@ function fail(res, message = "Operation failed", status = 400, errors = []) {
 module.exports = {
   ok,
   fail,
+
 };
+

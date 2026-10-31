@@ -1,5 +1,25 @@
 // OWNER: BE-1
-// PURPOSE: [Customer records] Express router: declare endpoints, attach auth/role/validate middleware
-// TODO: implement (see team-docs for the exact task list)
+// PURPOSE: Express router: customer endpoints (ADMIN and STAFF)
 
-module.exports = {};
+const express = require('express');
+const router = express.Router();
+
+const customersController = require('./customers.controller');
+const {
+  createCustomerSchema,
+  updateCustomerSchema,
+} = require('./customers.schema');
+const authMiddleware = require('../../middlewares/auth.middleware');
+const requireRole = require('../../middlewares/role.middleware');
+const validate = require('../../middlewares/validate.middleware');
+
+// Customers are accessible to ADMIN and STAFF
+router.use(authMiddleware);
+router.use(requireRole('ADMIN', 'STAFF'));
+
+router.get('/', customersController.listCustomers);
+router.post('/', validate(createCustomerSchema), customersController.createCustomer);
+router.get('/:id', customersController.getCustomerById);
+router.patch('/:id', validate(updateCustomerSchema), customersController.updateCustomer);
+
+module.exports = router;

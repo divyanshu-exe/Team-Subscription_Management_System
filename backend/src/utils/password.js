@@ -39,4 +39,6 @@ module.exports = {
   isValidPassword,
   hashPassword,
   comparePassword,
+
 };
+

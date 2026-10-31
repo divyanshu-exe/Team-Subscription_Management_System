@@ -68,4 +68,6 @@ app.use('/api/portal', loadRouter('./modules/portal/portal.routes'));
 // Global error handler
 app.use(errorMiddleware);
 
+
 module.exports = app;
+

@@ -48,4 +48,6 @@ module.exports = {
   verifyJwt,
   generateResetToken,
   hashToken,
+
 };
+
