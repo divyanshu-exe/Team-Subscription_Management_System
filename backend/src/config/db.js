@@ -1,5 +1,17 @@
 // OWNER: BE-1
-// PURPOSE: Export singleton PrismaClient
-// TODO: implement (see team-docs for the exact task list)
+// PURPOSE: Singleton PrismaClient instance
 
-module.exports = {};
+const { PrismaClient } = require('@prisma/client');
+
+let prisma;
+
+if (process.env.NODE_ENV === 'production') {
+  prisma = new PrismaClient();
+} else {
+  if (!global.prisma) {
+    global.prisma = new PrismaClient();
+  }
+  prisma = global.prisma;
+}
+
+module.exports = prisma;
