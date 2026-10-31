@@ -1,5 +1,26 @@
 // OWNER: BE-2
-// PURPOSE: [Payments against invoices] Zod validation schemas for request bodies/queries
-// TODO: implement (see team-docs for the exact task list)
+// PURPOSE: [Payment recording, invoice balance update and settlement] Zod schemas
 
-module.exports = {};
+const { z } = require('zod');
+
+const createPaymentSchema = z.object({
+  invoiceId: z.number().int().positive(),
+  method: z.enum(['CASH', 'CARD', 'BANK_TRANSFER', 'UPI', 'CHEQUE']),
+  amount: z.number().positive(),
+  paymentDate: z.string().optional(),
+  note: z.string().max(500).optional(),
+});
+
+const listPaymentsQuerySchema = z.object({
+  invoiceId: z.string().optional(),
+  method: z.enum(['CASH', 'CARD', 'BANK_TRANSFER', 'UPI', 'CHEQUE']).optional(),
+  from: z.string().optional(),
+  to: z.string().optional(),
+  page: z.string().optional(),
+  limit: z.string().optional(),
+});
+
+module.exports = {
+  createPaymentSchema,
+  listPaymentsQuerySchema,
+};

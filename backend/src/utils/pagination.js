@@ -43,6 +43,4 @@ function paginated(items, total, page, limit) {
 module.exports = {
   parsePagination,
   paginated,
-
 };
-

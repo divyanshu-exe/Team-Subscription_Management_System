@@ -25,6 +25,4 @@ module.exports = {
   SMTP_PASS: process.env.SMTP_PASS || '',
   MAIL_FROM: process.env.MAIL_FROM || 'Brightloop <no-reply@brightloop.test>',
   BILLING_CRON: process.env.BILLING_CRON || '0 1 * * *',
- HEAD
 };
-

@@ -1,5 +1,22 @@
 // OWNER: BE-2
-// PURPOSE: [Finance dashboard aggregates] Zod validation schemas for request bodies/queries
-// TODO: implement (see team-docs for the exact task list)
+// PURPOSE: [Dashboard summary and overdue invoices] Zod schemas for query parameters
 
-module.exports = {};
+const { z } = require('zod');
+
+const dashboardSummaryQuerySchema = z.object({
+  from: z.string().optional(),
+  to: z.string().optional(),
+  customerId: z.string().optional(),
+  planId: z.string().optional(),
+});
+
+const dashboardOverdueQuerySchema = z.object({
+  customerId: z.string().optional(),
+  page: z.string().optional(),
+  limit: z.string().optional(),
+});
+
+module.exports = {
+  dashboardSummaryQuerySchema,
+  dashboardOverdueQuerySchema,
+};

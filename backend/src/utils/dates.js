@@ -77,6 +77,4 @@ module.exports = {
   addPeriod,
   periodEnd,
   isOverdue,
-
 };
-

@@ -152,6 +152,4 @@ module.exports = {
   calcLine,
   applyDiscount,
   calcInvoiceTotals,
-
 };
-

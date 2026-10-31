@@ -1,5 +1,25 @@
 // OWNER: BE-2
-// PURPOSE: [Quotation templates and lines] Express router: declare endpoints, attach auth/role/validate middleware
-// TODO: implement (see team-docs for the exact task list)
+// PURPOSE: Express router: quotation template endpoints (ADMIN and STAFF)
 
-module.exports = {};
+const express = require('express');
+const router = express.Router();
+
+const quotationTemplatesController = require('./quotation-templates.controller');
+const {
+  createQuotationTemplateSchema,
+  updateQuotationTemplateSchema,
+} = require('./quotation-templates.schema');
+const authMiddleware = require('../../middlewares/auth.middleware');
+const requireRole = require('../../middlewares/role.middleware');
+const validate = require('../../middlewares/validate.middleware');
+
+router.use(authMiddleware);
+router.use(requireRole('ADMIN', 'STAFF'));
+
+router.get('/', quotationTemplatesController.listQuotationTemplates);
+router.get('/:id', quotationTemplatesController.getQuotationTemplateById);
+router.post('/', validate(createQuotationTemplateSchema), quotationTemplatesController.createQuotationTemplate);
+router.put('/:id', validate(updateQuotationTemplateSchema), quotationTemplatesController.updateQuotationTemplate);
+router.delete('/:id', quotationTemplatesController.deleteQuotationTemplate);
+
+module.exports = router;

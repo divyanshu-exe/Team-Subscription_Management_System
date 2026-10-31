@@ -39,6 +39,4 @@ module.exports = {
   ALLOWED_TRANSITIONS,
   canTransition,
   assertTransition,
-
 };
-

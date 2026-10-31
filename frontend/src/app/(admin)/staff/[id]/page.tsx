@@ -1,5 +1,17 @@
 // OWNER: FE-1
-// TODO: implement (see team-docs)
+// PURPOSE: Staff details redirect page
+
+'use client';
+
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
 export default function StaffDetailPage() {
-  return <div>Staff detail - TODO</div>;
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace('/staff');
+  }, [router]);
+
+  return null;
 }
